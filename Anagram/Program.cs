@@ -10,8 +10,7 @@ namespace Anagram
         {
             ReverseString anagram = new ReverseString();
             Console.WriteLine("Type the string you want to reverse:");
-            anagram.Reverse(Console.ReadLine());
-            Console.WriteLine($"Reversed string: {anagram.reversedString}");
+            Console.WriteLine($"Reversed string:{anagram.Reverse(Console.ReadLine())}");
         }
     }
 }

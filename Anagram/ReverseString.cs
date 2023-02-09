@@ -9,14 +9,13 @@ namespace Anagram
 {
     public class ReverseString
     {
-        public string reversedString;
         public string Reverse(string input)
         {
+            string reversedString = string.Empty;
             StringBuilder result = new StringBuilder();
-            Console.WriteLine($"Original string: {input}");
             if (String.IsNullOrEmpty(input))
             {
-                Console.WriteLine("Your string is empty or it has only one symbol");
+                return input;
             }
             else
             {
@@ -26,11 +25,18 @@ namespace Anagram
                     result.Append(ReverseWord(word));
                     result.Append(' ');
                 }
-                reversedString = result.ToString().TrimEnd();
+                if (result[result.Length-1] == ' ')
+                {
+                    reversedString = result.ToString().Substring(0, result.Length - 1);
+                } else
+                {
+                    reversedString = result.ToString();
+                }
             }
             return reversedString;
         }
-        public string ReverseWord(string word)
+
+        private string ReverseWord(string word)
         {
             char[] charArray = word.ToCharArray();
             int leftIndex = 0;
