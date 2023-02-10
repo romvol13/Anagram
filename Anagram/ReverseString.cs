@@ -17,21 +17,18 @@ namespace Anagram
             {
                 return input;
             }
-            else
+            string[] words = input.Split();
+            foreach (string word in words)
             {
-                string[] words = input.Split();
-                foreach (string word in words)
-                {
-                    result.Append(ReverseWord(word));
-                    result.Append(' ');
-                }
-                if (result[result.Length-1] == ' ')
-                {
-                    reversedString = result.ToString().Substring(0, result.Length - 1);
-                } else
-                {
-                    reversedString = result.ToString();
-                }
+                 result.Append(ReverseWord(word));
+                 result.Append(' ');
+            }
+            if (result[result.Length-1] == ' ')
+            {
+                 reversedString = result.ToString().Substring(0, result.Length - 1);
+            } else
+            {
+                reversedString = result.ToString();
             }
             return reversedString;
         }
