@@ -11,18 +11,21 @@ namespace Anagram
     {
         public string Reverse(string input)
         {
-            string reversedString = string.Empty;
-            StringBuilder result = new StringBuilder();
             if (String.IsNullOrEmpty(input))
             {
                 return input;
             }
+
             string[] words = input.Split();
+            string reversedString = string.Empty;
+            StringBuilder result = new StringBuilder();
+
             foreach (string word in words)
             {
                  result.Append(ReverseWord(word));
                  result.Append(' ');
             }
+
             if (result[result.Length-1] == ' ')
             {
                  reversedString = result.ToString().Substring(0, result.Length - 1);
@@ -38,6 +41,7 @@ namespace Anagram
             char[] charArray = word.ToCharArray();
             int leftIndex = 0;
             int rightIndex = charArray.Length - 1;
+
             while (leftIndex < rightIndex)
             {
                 if (!char.IsLetter(charArray[leftIndex]))
